@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: radial-gradient(
+    circle,
+    #000 25vmin,
+    #024 100vmax
+  );
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#output {
+  background-image: radial-gradient(
+    circle farthest-corner at 75% 75%,
+    rgba(0,0,16,1) 0%,
+    rgba(0,16,32,1) 50%,
+    rgba(0,64,48,1) 100%
+  );
+  border-radius: 50%;
+  color: rgb(32, 220, 128);
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  text-rendering: optimizeSpeed;
+  will-change: contents, transform;
+  white-space: pre;
+  position: absolute;
+  display: block; /* Changed from flex */
+  text-align: left; /* Changed from center */
+  box-shadow: 0 0 30px rgba(32, 220, 128, 0.3);
+  overflow: hidden; /* Prevent any overflow */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+  
+  /* Ensure characters are monospaced */
+  letter-spacing: 0;
+  word-spacing: 0;
+  font-variant-ligatures: none;
+  text-transform: none;
+  line-height: 1; /* Reset line height */
+  
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* Better rendering on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Three.js canvas (only hidden when not in debug mode) */
+#three-canvas {
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  #output {
+    font-weight: 300; /* Lighter weight on mobile for clarity */
+  }
+}
+
+/* Generic canvas hiding (but not Three.js canvas in debug mode) */
+canvas:not(#three-canvas) {
+  display: none !important;
+}
